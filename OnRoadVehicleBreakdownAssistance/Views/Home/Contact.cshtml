@@ -1,0 +1,119 @@
+@{
+    ViewBag.Title = "Contact";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.body-background {
+    background-image: url('/Content/Images/Contact.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    border-color: #333;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+</style>
+
+
+    <div class="about-section">
+        <h1>Contact Us</h1>
+        <p>Please drop an email to <h3>Help-ReadyMechanics@gmail.com</h3> for any queries</p>
+        <p>Also reach out to us on our 24/7 tollfree no <h3>0900114658899</h3></p>
+    </div>
+
+    <div class="body-background">
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <div class="container">
+                        <h2>Jane Doe</h2>
+                        <p class="title">CEO & Founder</p>
+                        <p>Expert and Certified on road help assistance managements</p>
+                        <p>Jane.Doe@gmail.com</p>
+                        <p><button class="button">Contact</button></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <div class="container">
+                        <h2>Mike Ross</h2>
+                        <p class="title">Director</p>
+                        <p>Leads a dynamic team in developing marketing strategies</p>
+                        <p>Mike.Ross@gmail.com</p>
+                        <p><button class="button">Contact</button></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <div class="container">
+                        <h2>David Lee</h2>
+                        <p class="title">Designer</p>
+                        <p>Design and develop innovations</p>
+                        <p>David.Lee@gmail.com</p>
+                        <p><button class="button">Contact</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

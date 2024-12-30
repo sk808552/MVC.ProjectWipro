@@ -1,0 +1,94 @@
+﻿@model OnRoadVehicleBreakdownAssistance.Customer
+
+@{
+    ViewBag.Title = "Profile Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .body-background {
+        background-image: url('/Content/Images/edit.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        border-color: #333;
+    }
+
+    .textbox {
+        width: 95%;
+        padding: 8px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border-radius: 25px;
+        box-sizing: border-box;
+        opacity: 0.5;
+    }
+
+    input[type=submit] {
+        width: 95%;
+        background-color: #111;
+        color: white;
+        padding: 8px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #252623;
+        }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="body-background">
+
+        @Html.HiddenFor(model => model.cust_id)
+
+        <div style="padding-top:0.1px; background-color: dimgray; width:30%; border-radius:25px; padding-left:28px; opacity:0.8" ;>
+
+            <h2>Edit Your Profile</h2>
+            <div>
+                <h3>@Html.Label("Name")</h3>
+                <div>
+                    @Html.TextBoxFor(model => model.cust_full_name, new { @Class = "textbox" })
+                    @Html.ValidationMessageFor(model => model.cust_full_name)
+                </div>
+            </div>
+
+            <div>
+                <h3>@Html.Label("Email")</h3>
+                <div>
+                    @Html.TextBoxFor(model => model.cust_email, new { @Class = "textbox" })
+                    @Html.ValidationMessageFor(model => model.cust_email)
+                </div>
+            </div>
+
+            <div>
+                <h3>@Html.Label("Age")</h3>
+                <div>
+                    @Html.TextBoxFor(model => model.cust_age, new { @Class = "textbox" })
+                    @Html.ValidationMessageFor(model => model.cust_age)
+                </div>
+            </div>
+
+            <div>
+                <h3>@Html.Label("Mobile No")</h3>
+                <div>
+                    @Html.TextBoxFor(model => model.cust_mob_no, new { @Class = "textbox" })
+                    @Html.ValidationMessageFor(model => model.cust_mob_no)
+                </div>
+            </div>
+            <br />
+
+            <div>
+                <div>
+                    <input type="submit" value="Save" />
+                </div>
+            </div>
+        </div>
+    </div>
+}

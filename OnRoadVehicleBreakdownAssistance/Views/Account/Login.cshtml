@@ -1,0 +1,90 @@
+﻿@model OnRoadVehicleBreakdownAssistance.Models.Membership
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<style>
+    .body-background {
+        background-image: url('/Content/Images/signupBackground.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        border-color: #333;
+    }
+
+    .textbox {
+        width: 28%;
+        padding: 8px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border-radius: 25px;
+        box-sizing: border-box;
+        opacity: 0.3;
+    }
+
+    input[type=submit] {
+        width: 28%;
+        background-color: #111;
+        color: white;
+        padding: 8px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+
+    .center {
+        margin: auto;
+        width: 80%;
+        padding: 135px;
+    }
+
+    input[type=submit]:hover {
+        background-color: #252623;
+    }
+</style>
+
+<div class="center">
+    <h2>Login</h2>
+    <b>Please sign in this form to login to your account</b>
+    <br />
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="body-background">
+            <div>
+                <h3>
+                    @Html.LabelFor(model => model.Username)<br />
+                    @Html.TextBoxFor(model => model.Username, new { @Class = "textbox" })
+                    @Html.ValidationMessageFor(model => model.Username)
+                </h3>
+
+                <h3>
+                    @Html.LabelFor(model => model.Password)<br />
+                    @Html.PasswordFor(model => model.Password, new { @Class = "textbox" })
+                    @Html.ValidationMessageFor(model => model.Password)
+                </h3>
+            </div>
+
+            <div>
+                <h4>
+                    @Html.ActionLink(" Reset Password", "Reset")
+                </h4>
+            </div>
+
+            <div>
+                <div>
+                    <input type="submit" value="Login" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        <h3 style="padding-left:40px;">Don't have an account?@Html.ActionLink("Signup", "Signup")</h3>
+    </div>
+</div>

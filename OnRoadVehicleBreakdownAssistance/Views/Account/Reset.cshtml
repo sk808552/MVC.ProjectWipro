@@ -1,0 +1,88 @@
+﻿@model OnRoadVehicleBreakdownAssistance.User
+
+@{
+    ViewBag.Title = "Reset Password";
+}
+
+<style>
+    .body-background {
+        background-image: url('/Content/Images/signupBackground.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        border-color: #333;
+    }
+    .textbox {
+        width: 28%;
+        padding: 8px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border-radius: 25px;
+        box-sizing: border-box;
+        opacity: 0.3;
+    }
+    input[type=submit] {
+        width: 28%;
+        background-color: #111;
+        color: white;
+        padding: 8px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+    .center {
+        margin: auto;
+        width: 80%;
+        padding: 135px;
+    }
+    input[type=submit]:hover {
+        background-color: #252623;
+    }
+
+</style>
+
+<div class="center">
+
+    <h2>Reset Your Password</h2>
+
+    <b>Enter your username to change your password</b>
+    <br />
+    <br />
+
+    @using (Html.BeginForm("Reset", "Account"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="body-background">
+            <div>
+                <h3>
+                    @Html.LabelFor(model => model.Username)<br />
+                    @Html.TextBoxFor(model => model.Username, new { @Class = "textbox" })
+                    @Html.ValidationMessageFor(model => model.Username)
+                </h3>
+                <h3>
+                    @Html.Label("Enter new password")<br />
+                    @Html.PasswordFor(model => model.Password, new { @Class = "textbox" })
+                    @Html.ValidationMessageFor(model => model.Password)
+                </h3>
+                <h3>
+                    <label for="Confirmpassword"> Confirm new password</label><br />
+                    <input type="password" name="Confirmpassword" class="textbox"/>
+                    @Html.ValidationMessage("Confirmpassword")
+                </h3>
+            </div>
+
+            <div>
+                <div>
+                    <input type="submit" value="Reset" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        <h3 style="padding-left:40px;">Forgot your username?@Html.ActionLink("Help", "Contact", "Home")</h3>
+    </div>
+</div>
+

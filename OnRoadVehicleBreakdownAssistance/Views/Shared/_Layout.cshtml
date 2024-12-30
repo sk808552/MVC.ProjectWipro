@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <style>
+ 
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+
+        .body-background {
+            background-image: url('/Content/Images/ReadyMechanicsHome.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            border-color: #333;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        .ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            line-height: 50%
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: whitesmoke;
+            text-align: center;
+            padding: 20px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: gray;
+        }
+
+        .logoText {
+            font-size: 25px;
+            font-weight: 700;
+            padding-left: 10px;
+        }
+
+        .justify-left {
+            justify-content: left;
+        }        
+
+    </style>
+</head>
+<body class="body-background">
+    <div>
+        <div>
+            <ul class="ul">
+                <li style="float:left"><img src="~/Content/Images/logo.png" alt="ReadyMechanics Logo" width="40" height="48"></li>
+                <li style="float:left"><h2 style="color:white">Ready Mechanics</h2></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li style="float:right">@Html.ActionLink("Logout", "Logout", "Account")</li>
+                    <li style="float:right">@Html.ActionLink("Dear - " + User.Identity.Name , "UserProfile", "Services")</li>                  
+
+
+                    if (User.IsInRole("Admin"))
+                    {
+                        <li style="float:right">@Html.ActionLink("Get List", "Index", "Customers")</li>
+                        <li style="float:right"> @Html.ActionLink("Create", "Create", "Customers")</li>
+
+                    }
+                    else
+                    {
+                        <li style="float:right">@Html.ActionLink("My Services", "Index", "Services")</li>
+                        <li style="float:right">@Html.ActionLink("Register Issue", "Create", "Services")</li>
+                    }
+                }
+                else
+                {
+                    <li style="float:right">@Html.ActionLink("Login", "Login", "Account")</li>
+                }
+                <li style="float:right"><a href="https://www.thehindu.com/news/" target="_blank">News</a></li>
+                <li style="float:right">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li style="float:right">@Html.ActionLink("About", "About", "Home")</li>
+                <li style="float:right" class="active">@Html.ActionLink("Home", "Home", "Home")</li>
+            </ul>
+        </div>
+        <div>
+            @RenderBody()
+
+            <footer>
+                <p>&copy; @DateTime.Now.Year - On Road Vehicle Breakdown Assistance</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

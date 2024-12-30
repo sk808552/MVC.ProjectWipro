@@ -1,0 +1,95 @@
+﻿@model OnRoadVehicleBreakdownAssistance.Service
+
+@{
+    ViewBag.Title = "Customer";
+}
+
+<style>
+    .body-background {
+        background-image: url('/Content/Images/UserHome.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        border-color: #333;
+    }
+
+    .div-form {
+        float: right;
+        margin-top: 12px;
+        margin-right: 12px;
+        text-align: center;
+        border: 1px solid black;
+        width: 33%;
+    }
+
+    .textbox {
+        width: 95%;
+        padding: 8px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border-radius: 25px;
+        box-sizing: border-box;
+        opacity: 0.5;
+    }
+
+    input[type=submit] {
+        width: 95%;
+        background-color: #111;
+        color: white;
+        padding: 8px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #252623;
+    }
+</style>
+
+
+<div class="body-background">
+
+    <div class="div-form">
+        <div>
+            <h2>Register Your Complaint Here</h2>
+            <div>
+                <h3>@Html.Label("Name")</h3>
+                <div>
+                    @Html.TextBoxFor(model => model.cust_full_name, new { @Class = "textbox"})
+                </div>
+            </div>
+
+            <div>
+                <h3>@Html.Label("Email")</h3>
+                <div>
+                    @Html.TextBoxFor(model => model.cust_email, new { @Class = "textbox"})
+                </div>
+            </div>
+
+            <div>
+                <h3>@Html.Label("Mobile No")</h3>
+                <div>
+                    @Html.TextBoxFor(model => model.cust_mob_no, new { @Class = "textbox"})
+                </div>
+            </div>
+
+            <div>
+                <h3>@Html.Label("Services")</h3>
+                <div>
+                    @Html.TextBoxFor(model => model.cust_mob_no, new { @Class = "textbox"})
+                </div>
+            </div><br/><br/>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Register" />
+            </div><br />
+        </div>
+    </div>
+
+</div>
+
+

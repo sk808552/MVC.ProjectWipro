@@ -1,0 +1,116 @@
+﻿@model IEnumerable<OnRoadVehicleBreakdownAssistance.Service>
+
+@{
+    ViewBag.Title = "My Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .about-section {
+        padding: 0.5px;
+        text-align: center;
+        background-color: #474e5d;
+        color: white;
+    }
+
+    .body-background {
+        background-image: url('/Content/Images/Contact.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        border-color: #333;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: dimgray;
+        font-weight: bold;
+        color: #85a3a8;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #9EA196;
+        font-weight: bold;
+        color: #009879;
+    }
+
+    .table {
+        border: 1px solid black;
+    }
+
+    th {
+        color: whitesmoke;
+    }
+
+    .styled-table {
+        border-collapse: collapse;
+        margin: auto;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+</style>
+
+<div class="body-background">
+    <h3>Your issue has been registered successfully.</h3>
+    <p>Please call on the 24/7 tollfree no <b>0900114658899</b> to get the immidiate assistance.</p>
+
+    <table class="styled-table" border="1" width="100%" align="left">
+
+        <tr style="background-color: #333; height: 40px " ;>
+            <th>
+                @Html.DisplayName("Name")
+            </th>
+            <th>
+                @Html.DisplayName("Email ID")
+            </th>
+            <th>
+                @Html.DisplayName("Mobile No")
+            </th>
+            <th>
+                @Html.DisplayName("Service Type")
+            </th>
+            <th>
+                @Html.DisplayName("Date")
+            </th>
+            <th>
+                @Html.DisplayName("Status")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cust_srv_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cust_srv_email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cust_srv_mob_no)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cust_srv_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cust_srv_date)
+                </td>
+                <td style="color:darkred;">
+                    @Html.DisplayFor(modelItem => item.cust_srv_status)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+

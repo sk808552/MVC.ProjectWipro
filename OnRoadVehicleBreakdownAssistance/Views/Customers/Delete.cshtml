@@ -1,0 +1,92 @@
+﻿@model OnRoadVehicleBreakdownAssistance.Customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<style>
+    .body-background {
+        background-image: url('/Content/Images/delete.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        border-color: #333;
+    }
+
+    .textbox {
+        width: 95%;
+        padding: 8px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border-radius: 25px;
+        box-sizing: border-box;
+        opacity: 0.5;
+    }
+
+    input[type=submit] {
+        width: 95%;
+        background-color: #111;
+        color: white;
+        padding: 8px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #252623;
+        }
+</style>
+
+
+<div class="body-background">
+
+    <div style="padding-top:0.1px; background-color: dimgray; width:30%; border-radius:25px; padding-left:28px; opacity:0.8" ;>
+        <h2>Delete Customer</h2>
+
+        <div>
+            <h3>@Html.Label("Name")</h3>
+            <div>
+                @Html.TextBoxFor(model => model.cust_full_name, new { @Class = "textbox", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div>
+            <h3>@Html.Label("Email")</h3>
+            <div>
+                @Html.TextBoxFor(model => model.cust_email, new { @Class = "textbox", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div>
+            <h3>@Html.Label("Age")</h3>
+            <div>
+                @Html.TextBoxFor(model => model.cust_age, new { @Class = "textbox", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div>
+            <h3>@Html.Label("Mobile No")</h3>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.cust_mob_no, new { @Class = "textbox", @readonly = "readonly" })
+            </div>
+        </div><br />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                <input type="submit" value="Delete" />
+            </div><br />
+        }
+    </div>
+
+    <div>
+        <h3>@Html.ActionLink("Back to List", "Index")</h3>
+    </div>
+</div>
+
+    
+

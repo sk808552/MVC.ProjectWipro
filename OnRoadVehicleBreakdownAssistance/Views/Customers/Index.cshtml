@@ -1,0 +1,106 @@
+﻿@model IEnumerable<OnRoadVehicleBreakdownAssistance.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .about-section {
+        padding: 0.5px;
+        text-align: center;
+        background-color: #474e5d;
+        color: white;
+    }
+    .body-background {
+        background-image: url('/Content/Images/Contact.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        border-color: #333;
+    }
+    td {
+        text-align: center;
+    }
+    tr:nth-child(even) {
+        background-color: dimgray;
+        font-weight: bold;
+        color: #85a3a8;
+    }
+    tr:nth-child(odd) {
+        background-color: #9EA196;
+        font-weight: bold;
+        color: #009879;
+    }
+    .table {
+        border: 1px solid black;
+    }
+    th {
+        color: whitesmoke;
+    }
+    .styled-table {
+        border-collapse: collapse;
+        margin: auto;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+</style>
+  
+
+<div class="body-background">
+    <table class="styled-table" border="1" width="100%" align="left">
+
+        <tr style="background-color: #333; height: 40px " ;>
+            <th>
+                @Html.DisplayName("Name")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("Age")
+            </th>
+            <th>
+                @Html.DisplayName("Mobile No")
+            </th>
+            <th>
+                @Html.DisplayName("Action")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cust_full_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cust_email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cust_age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cust_mob_no)
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.cust_id })
+                    }
+
+                    @Html.ActionLink("Details", "Details", new { id = item.cust_id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.cust_id })
+
+                </td>
+            </tr>
+        }
+    </table>        
+</div>
+
+

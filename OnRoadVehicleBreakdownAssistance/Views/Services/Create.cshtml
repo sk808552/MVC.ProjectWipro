@@ -1,0 +1,122 @@
+﻿@model OnRoadVehicleBreakdownAssistance.Service
+
+@{
+    ViewBag.Title = "Register Issue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .body-background {
+        background-image: url('/Content/Images/UserHome.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 93.1%;
+        border-color: #333;
+    }
+
+    .div-form {
+        float: right;
+        margin-top: 12px;
+        margin-right: 12px;
+        text-align: center;
+        width: 33%;
+    }
+
+    .textbox {
+        width: 95%;
+        padding: 4px 20px;
+        margin: 4px 0;
+        display: inline-block;
+        border-radius: 25px;
+        box-sizing: border-box;
+        opacity: 0.5;
+    }
+
+    input[type=submit] {
+        width: 95%;
+        background-color: #111;
+        color: white;
+        padding: 8px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #252623;
+        }
+</style>
+
+<script>
+    // Get today's date
+    const today = new Date().toISOString().substr(0, 10);
+    // Set the value of the date input to today's date
+    document.getElementsByName('cust_srv_date').value = today;
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="body-background">
+
+        <div class="div-form">
+            <div>
+                <h2>Register Your Issue Here</h2>
+                <div>
+                    <h3>@Html.Label("Name")</h3>
+                    <div>
+                        <input type="text" name="cust_srv_name" value=@User.Identity.Name class="textbox" readonly="readonly">
+                    </div>
+                </div>
+
+                <div>
+                    <h3>@Html.Label("Email ID")</h3>
+                    <div>
+                        @Html.TextBoxFor(model => model.cust_srv_email, new { @Class = "textbox" })
+                    </div>
+                </div>
+
+                <div>
+                    <h3>@Html.Label("Mobile No")</h3>
+                    <div>
+                        @Html.TextBoxFor(model => model.cust_srv_mob_no, new { @Class = "textbox" })
+                    </div>
+                </div>
+
+                <div>
+                    <h3>@Html.Label("Service Type")</h3>
+                    <div>
+                        <select name="cust_srv_type" class="textbox">
+                            <option value="">Select</option>
+                            <option value="Bike Towing">Bike Towing</option>
+                            <option value="Car Towing">Car Towing</option>
+                            <option value="Fuel Needed">Fuel Needed</option>
+                            <option value="Wheel Change">Wheel Change</option>
+                            <option value="Engine Failuare">Engine Failuare</option>
+                            <option value="Minor Repair">Minor Repair</option>
+                            <option value="Lost Keys">Lost Keys</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>@Html.Label("Date")</h3>
+                    <div>
+                        <input type="date" name="cust_srv_date" class="textbox">
+                    </div>
+                </div><br /><br />
+            </div>
+
+            <div>
+                <div>
+                    <input type="submit" value="Register" />
+                </div><br />
+            </div>
+        </div>
+
+    </div>
+}
+
+
