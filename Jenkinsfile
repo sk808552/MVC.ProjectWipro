@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Print a message') {
             steps {
-                echo 'Hello world!' 
+                echo 'Hello Sushree' 
             }
         }
     }
