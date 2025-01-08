@@ -6,26 +6,9 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Print a message') {
             steps {
-                script {
-                    bat "dotnet restore"
-                    bat "dotnet build --configuration Release"
-                }
-            }
-        }
-        stage('Test') {
-            steps {
-                script {
-                    bat "dotnet test --no restore --configuration Release"
-                }
-            }
-        }
-        stage('Publish') {
-            steps {
-                script {
-                    bat "dotnet publish --no restore --configuration Release --output .\\publish"
-                }
+                echo 'Hello world!' 
             }
         }
     }
